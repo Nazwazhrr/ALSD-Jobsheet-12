@@ -38,12 +38,15 @@ public class DoubleLinkedList01 {
             System.out.println("List kosong, tidak bisa dihapus.");
             return;
         } 
+        Mahasiswa01 removedData = head.data; // Simpan data sebelum dihapus
         if (head == tail) {
             head = tail = null;
         } else {
             head = head.next;
             head.prev = null;
         }
+        System.out.print("Data sudah berhasil dihapus. Data yang terhapus adalah: ");
+        removedData.tampil(); 
     }
 
     public void removeLast() {
