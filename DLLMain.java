@@ -14,6 +14,13 @@ public class DLLMain {
                 System.out.println("5. Tampilkan data");
                 System.out.println("6. Cari Mahasiswa berdasarkan NIM");
                 System.out.println("7. Sisip data setelah NIM tertentu");
+                System.out.println("8. Tambah data pada indeks tertentu");
+                System.out.println("9. Hapus data setelah NIM tertentu");
+                System.out.println("10. Hapus data pada indeks tertentu");
+                System.out.println("11. Tampilkan data pertama");
+                System.out.println("12. Tampilkan data terakhir");
+                System.out.println("13. Tampilkan data pada indeks tertentu");
+                System.out.println("14. Tampilkan jumlah data");
                 System.out.println("0. Keluar");
                 System.out.print("Pilih menu : ");
                 pilihan = scan.nextInt();
@@ -27,8 +34,8 @@ public class DLLMain {
                         Mahasiswa01 mhs = inputMahasiswa(scan);
                         list.addLast(mhs);
                     }
-                  //  case 3 -> list.removeFirst();
-                  //  case 4 -> list.removeLast();
+                    case 3 -> list.removeFirst();
+                    case 4 -> list.removeLast();
                     case 5 -> list.print();
                     case 6 -> {
                         System.out.print("Masukkan NIM yang dicari: ");
@@ -48,6 +55,34 @@ public class DLLMain {
                         String keyNim = scan.nextLine();
                         Mahasiswa01 mhs = inputMahasiswa(scan);
                         list.insertAfter(keyNim, mhs);
+                    }
+                    case 8 -> {
+                        System.out.print("Masukkan indeks: ");
+                        int index = scan.nextInt();
+                        scan.nextLine();
+                        Mahasiswa01 mhs = inputMahasiswa(scan);
+                        list.add(index, mhs);
+                    }
+                    case 9 -> {
+                        scan.nextLine();
+                        System.out.print("Masukkan NIM sebagai acuan penghapusan: ");
+                        String key = scan.nextLine();
+                        list.removeAfter(key);
+                    }
+                    case 10 -> {
+                        System.out.print("Masukkan indeks yang ingin dihapus: ");
+                        int index = scan.nextInt();
+                        list.remove(index);
+                    }
+                    case 11 -> list.getFirst();
+                    case 12 -> list.getLast();
+                    case 13 -> {
+                        System.out.print("Masukkan indeks: ");
+                        int index = scan.nextInt();
+                        list.getIndex(index);
+                    }
+                    case 14 -> { 
+                        System.out.println("Jumlah data dalam list: " + list.size());
                     }
                     case 0 -> System.out.println("Keluar dari program.");
                     default -> System.out.println("Pilihan tidak valid!");
